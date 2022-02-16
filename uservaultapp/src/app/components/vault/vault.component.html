@@ -1,0 +1,272 @@
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+<div class="container" style="min-height: 1000px; height:auto"> 
+<div class="row" style="justify-content: center;">
+	<div class="col-lg-10">
+		<div class="main-box clearfix">
+			<div class="table-responsive">
+				<table class="table user-list">
+					<thead>
+						<tr>
+							<th class="text-center"><span>Item</span></th>
+							<th class="text-center"><span>Quantity</span></th>
+							<th class="text-center"><span>Description</span></th>
+							<th class="text-center"><span>Propierty</span></th>
+                            <th class="text-center"><span>Effect</span></th>
+							<th>&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="width: 20%;">
+								<img src="https://i.postimg.cc/dtgVDVhK/Jewel-of-Bless.png" alt="">
+								<a href="#" class="user-link">Bless</a>
+								<span class="user-subhead">Jewel</span>
+							</td>
+							<td class="text-center">
+								{{user.vault.bless}}
+							</td>
+							<td class="text-center">
+								<span class="label">Jewel that have unique caracteristics</span>
+							</td>
+							<td class="text-center">
+								<span>This jewel is used on items to upgrade them from +0 to +6.</span>
+							</td>
+                            <td class="text-center">
+								<span>+0~+6 = 100%</span>
+							</td>
+							<td style="width: 13%;">
+								<a (click)="addSimpleItem('bless')" class="table-link">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+								<a (click)="deleteSimpleItem('bless')" class="table-link danger">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+							</td>
+						</tr>
+                        <tr>
+							<td style="width: 20%;">
+								<img src="https://i.postimg.cc/pL8XjMj5/Jewel-of-Soul.png" alt="">
+								<a href="#" class="user-link">Souls</a>
+								<span class="user-subhead">Jewel</span>
+							</td>
+							<td class="text-center">
+								<span>{{user.vault.souls}}</span>
+							</td>
+							<td class="text-center">
+								<span class="label label-success">Jewel that have unique caracteristics</span>
+							</td>
+							<td class="text-center">
+								<span>This jewel is used on items to upgrade them from +0 to +9</span>
+							</td>
+                            <td>
+								<span>+0~+9 = 50% (75% with +luck option)</span>
+							</td>
+							<td style="width: 13%;">
+								<a (click)="addSimpleItem('soul')" class="table-link">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+								<a (click)="deleteSimpleItem('soul')" class="table-link danger">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+							</td>
+						</tr>
+                        <tr>
+							<td style="width: 20%;">
+								<img src="https://i.postimg.cc/28C42mmv/drunnergold-6160.png" alt="">
+								<a href="#" class="user-link">Zen</a>
+								<span class="user-subhead">Denaro</span>
+							</td>
+							<td class="text-center">
+								<span>{{user.vault.denaro}}</span>
+							</td>
+							<td class="text-center">
+								<span class="label label-success">Money that is very useful to buy things</span>
+							</td>
+							<td class="text-center">
+								<span>Gold Coins</span>
+							</td>
+                            <td class="text-center">
+								<span>Rich</span>
+							</td>
+							<td style="width: 13%;">
+								<a (click)="addSimpleItem('denaro')" class="table-link">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+								<a (click)="deleteSimpleItem('denaro')" class="table-link danger">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+							</td>
+						</tr>
+                        <ng-template [ngIf] = "user.vault.wings != null">
+                        <tr>
+							<td *ngIf="user.vault.wings == 'Knight'" style="width: 20%;">
+								<img src="https://i.postimg.cc/gkx0YZkD/Wings-of-Storm.gif" alt="">
+								<a href="#" class="user-link">{{user.vault.wings}}</a>
+								<span class="user-subhead">Wings</span>
+							</td>
+							<td *ngIf="user.vault.wings == 'Sumonner'" style="width: 20%;">
+								<img src="https://i.postimg.cc/05Mh4n3g/wingdimension.gif" alt="">
+								<a href="#" class="user-link">{{user.vault.wings}}</a>
+								<span class="user-subhead">Wings</span>
+							</td>
+							<td *ngIf="user.vault.wings == 'Wizard'" style="width: 20%;">
+								<img src="https://i.postimg.cc/Pr19XxT2/Wingsof-Vortex.gif" alt="">
+								<a href="#" class="user-link">{{user.vault.wings}}</a>
+								<span class="user-subhead">Wings</span>
+							</td>
+							<td *ngIf="user.vault.wings == 'Elf'" style="width: 20%;">
+								<img src="https://i.postimg.cc/NG3ZvTqK/Wingilussion.gif" alt="">
+								<a href="#" class="user-link">{{user.vault.wings}}</a>
+								<span class="user-subhead">Wings</span>
+							</td>
+							<td class="text-center">
+								1
+							</td>
+							<td class="text-center">
+								<span class="label label-success">A Powerful Wings that make Fear to your Enemies</span>
+							</td>
+							<td class="text-center">
+								<ul>
+									<span>Power, Beauty and Fly</span>
+								</ul>
+							</td>
+                            <td class="text-center">
+								<ul>
+									<li>Increase Speed</li>
+									<li>Ignore Damage</li>
+								</ul>
+							</td>
+							<td style="width: 13%;">
+								<a (click)="deleteWings()" class="table-link danger" style="padding-left: 35%;">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+							</td>
+						</tr>
+                    </ng-template>
+                    <ng-template [ngIf] = "user.vault.swords != null">
+                        <tr *ngFor="let sword of user.vault.swords">
+							<td style="width: 20%;">
+								<img src="https://i.postimg.cc/BZY69gsb/Dark-Breaker.gif" alt="">
+								<a href="#" class="user-link">{{sword.swordName}}</a>
+								<span class="user-subhead">Sword</span>
+							</td>
+							<td class="text-center">
+								-
+							</td>
+							<td class="text-center">
+								<span class="label label-success">A special {{sword.metallo}} sword known to be as Guardian gear.</span>
+							</td>
+							<td>
+								<span><ul>
+									<li>{{sword.elemento}}</li>
+									<li>{{sword.tipoSpada}}</li>
+									<li>Level 380</li>
+								</ul></span>
+							</td>
+                            <td>
+								<ul>
+									<li>Strenght: +400</li>
+									<li>Agility: +200</li>
+								</ul>
+							</td>
+							<td style="width: 13%; ">
+								<a (click)="deleteSword(sword.ids)" class="table-link danger" style="padding-left: 35%;">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+							</td>	
+						</tr>
+                    </ng-template>
+                    <ng-template [ngIf] = "user.vault.potions != null">
+                        <tr *ngFor="let potion of user.vault.potions">
+							<td style="width: 20%;">
+								<img src="https://i.postimg.cc/ZYfjXCRZ/Csitems-blesspot.jpg" alt="">
+								<a href="#" class="user-link">{{potion.nomePozione}}</a>
+								<span class="user-subhead">Potion</span>
+							</td>
+							<td class="text-center">
+								-
+							</td>
+							<td class="text-center">
+								<span class="label">One of the main requirements to survive a fight</span>
+							</td>
+							<td class="text-center">
+								<span>{{potion.tipoPozione}}, {{potion.grandezzaPozione}}</span>
+							</td>
+                            <td class="text-center">
+								<span>Increase and Restore Statics for few seconds</span>
+							</td>
+							<td style="width: 13%;">
+								<a (click)="deletePotion(potion.potionid)" class="table-link danger" style="padding-left: 35%;">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+							</td>
+						</tr>
+                    </ng-template>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<div style = "width: 100%; display:flex; flex-direction:row; justify-content: center;">
+	<div class="dropdown" style="margin-right: 3%;">
+		<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+		  Add Item
+		</button>
+		<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+		  <li (click)="addSword()" class="dropdown-item">Sword</li>
+		  <li class="dropdown-item dropright">
+			<div class="dropdown-toggle" id="dropdown-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Potion</div>
+			<ul class="dropdown-menu-1" aria-labelledby="dropdown-2">
+				<li (click)="addPotion(1)" class="dropdown-item"><a>Soul Large</a></li>
+				<li (click)="addPotion(2)" class="dropdown-item"><a>Soul Small</a></li>
+				<li (click)="addPotion(3)" class="dropdown-item"><a>Bless Large</a></li>
+				<li (click)="addPotion(4)" class="dropdown-item"><a>Bless Small</a></li>
+				<li (click)="addPotion(5)" class="dropdown-item"><a>Healing Large</a></li>
+				<li (click)="addPotion(6)" class="dropdown-item"><a>Healing Small</a></li>
+				<li (click)="addPotion(7)" class="dropdown-item"><a>Mana Large</a></li>
+				<li (click)="addPotion(8)" class="dropdown-item"><a>Mana Small</a></li>
+				<li (click)="addPotion(9)" class="dropdown-item"><a>Antidota</a></li>
+				<li (click)="addPotion(10)" class="dropdown-item"><a>Ale</a></li>
+			</ul>
+		</li>
+		<li class="dropdown-item dropright">
+			<div class="dropdown-toggle" id="dropdown-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Wings</div>
+			<ul class="dropdown-menu-1" aria-labelledby="dropdown-3">
+				<li (click)="addWings(1)" class="dropdown-item"><a>Knight</a></li>
+				<li (click)="addWings(2)" class="dropdown-item"><a>Wizard</a></li>
+				<li (click)="addWings(3)" class="dropdown-item"><a>Elf</a></li>
+				<li (click)="addWings(4)" class="dropdown-item"><a>Summoner</a></li>
+			</ul>
+		</li>
+		</ul>
+	  </div>
+<button type="button" class="btn btn-primary" routerLink="" (click)="cleanAccess()">Logout</button>
+</div>

@@ -1,0 +1,5 @@
+<ng-template [ngIf] = "user.userName != ''">
+<h1 style="text-align: center; margin-top: 2%;">{{user.userName}}</h1>
+<h5 *ngFor="let role of user.roles" style="text-align: center; margin-bottom: 2%"> Role: {{role.roleName}} </h5>
+<app-vault [user] = "user"></app-vault>
+</ng-template>

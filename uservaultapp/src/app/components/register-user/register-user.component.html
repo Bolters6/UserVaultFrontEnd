@@ -1,0 +1,45 @@
+                        
+
+<div class="container bootstrap snippets bootdey" style="margin-top: 5%; margin-left: 35%;">
+  <div class="jumbotron text-center" style="min-height:200px; height:auto; width: 30%;">
+    <div style= "padding-left: 3%;" class="col-md-12">
+        <form class="form-horizontal" role="form">
+            <div class="form-group text-center">
+                <div class="col-sm-12 reg-icon">
+                    <span class="fa fa-user fa-3x">Sign up</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                  <input [(ngModel)] = "user.userName" name="userName" type="text" class="form-control" id="Username" placeholder="Username">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input [(ngModel)] = "user.email" name="email" type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input [(ngModel)] = "user.dataNascita" name="dataNascita" type="date" class="form-control" id="DataNascita" placeholder="Data Nascita">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input [(ngModel)] = "user.password" name="password" type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <button (click)="userRegister()" type="submit" class="btn btn-info" routerLink="">
+                    <span class="glyphicon glyphicon-share-alt"></span>
+                    Register
+                  </button>
+                </div>
+              </div>
+        </form>
+    </div>
+    <a routerLink="">Login</a> 
+  </div>
+</div> 
+                                      
