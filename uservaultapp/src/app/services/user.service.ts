@@ -17,13 +17,14 @@ export class UserService {
     return this.http.post<User>(`${this.urlServer}/app/user/register`, user);
   }
 
-  loginUser(username:string, password:string): void{
+  async loginUser(username:string, password:string): Promise<void>{
 
     const data = new FormData();
     data.append('username', username);
     data.append('password', password);
     localStorage.setItem('username', username);
-    this.http.post<any>(`${this.urlServer}/app/user/login`, data).subscribe(res => localStorage.setItem('access_token', res.access_token));
+    await this.http.post<any>(`${this.urlServer}/app/user/login`, data).subscribe(res => localStorage.setItem('access_token', res.access_token));
+    window.location.assign("http://localhost:4200/uservault");
   }
 
   getUser(): Observable<User>{
