@@ -17,13 +17,14 @@ export class UserService {
     return this.http.post<User>(`${this.urlServer}/app/user/register`, user);
   }
 
-  async loginUser(username:string, password:string): Promise<void>{
+  async loginUser(username:string, password:string): Promise<any>{
 
     const data = new FormData();
     data.append('username', username);
     data.append('password', password);
     localStorage.setItem('username', username);
-    await this.http.post<any>(`${this.urlServer}/app/user/login`, data).subscribe(res => localStorage.setItem('access_token', res.access_token));
+    let token = await this.http.post<any>(`${this.urlServer}/app/user/login`, data).toPromise();
+    localStorage.setItem('access_token', token.access_token);
     window.location.assign("http://localhost:4200/uservault");
   }
 
@@ -73,7 +74,8 @@ export class UserService {
   }
   
   cleanAccess(): void{
-    localStorage.setItem('access_token', '');
-    localStorage.setItem('username', '');
+   localStorage.removeItem('access_token');
+   localStorage.removeItem('username');
+   window.location.assign("http://localhost:4200/");
   }
 }
